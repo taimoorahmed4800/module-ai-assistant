@@ -1,0 +1,21 @@
+{
+  "name": "taimoor/module-ai-assistant",
+  "description": "Catalog-grounded AI shopping assistant starter for Magento 2.4",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "require": {
+    "php": ">=7.4",
+    "magento/framework": "*",
+    "magento/module-catalog": "*",
+    "magento/module-customer": "*",
+    "magento/module-store": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Taimoor\\AiAssistant\\": ""
+    }
+  }
+}

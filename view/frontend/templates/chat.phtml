@@ -1,0 +1,21 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Magento\Framework\Escaper $escaper */
+$config = ['#ai-shopping-assistant' => ['Taimoor_AiAssistant/js/assistant' => [
+    'endpoint' => $block->getUrl('aiassistant/chat/index')
+]]];
+?>
+<section id="ai-shopping-assistant" class="ai-assistant">
+    <h2><?= $escaper->escapeHtml(__('AI Shopping Assistant')) ?></h2>
+    <p class="ai-intro"><?= $escaper->escapeHtml(__('Tell us what you need and your budget. We will search this store catalog.')) ?></p>
+    <div class="ai-messages" role="log" aria-live="polite" aria-label="<?= $escaper->escapeHtmlAttr(__('Conversation')) ?>"></div>
+    <form class="ai-form">
+        <label for="ai-message"><?= $escaper->escapeHtml(__('Your shopping request')) ?></label>
+        <textarea id="ai-message" name="message" rows="3" maxlength="1000" required placeholder="<?= $escaper->escapeHtmlAttr(__('Example: Mujhe 10000 tak running shoes chahiye')) ?>"></textarea>
+        <button type="submit" class="action primary"><span><?= $escaper->escapeHtml(__('Find products')) ?></span></button>
+    </form>
+    <p class="ai-notice"><?= $escaper->escapeHtml(__('AI can make mistakes. Check product details, availability and final checkout prices. Do not share payment details or sensitive information. Your request and matching product data are sent to an external AI provider.')) ?></p>
+</section>
+<script type="text/x-magento-init">
+<?= /* @noEscape */ json_encode($config, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>
+</script>
